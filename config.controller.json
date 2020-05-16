@@ -1977,6 +1977,18 @@
                 }
             }
         },
+        "bmp280": {
+            "name": "bmp280",
+            "enabled": true,
+            "field_prefix": "bmp280",
+            "init": false,
+            "code": true,
+            "init_priority": 0,
+            "core": false,
+            "i2c": true,
+            "array_len": 3,
+            "fields": {}
+        },
         "motors": {
             "name": "motors",
             "enabled": true,

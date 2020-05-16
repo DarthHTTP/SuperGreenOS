@@ -19,12 +19,13 @@
 
 #include "../core/kv/kv.h"
 #include "../core/log/log.h"
+#include "../core/i2c/i2c.h"
+#include "../box/box.h"
 
-#define BMP280_ADDR 0x42
+#define BMP280_ADDR 0x77
 
 void init_bmp280(int i2cId) {
   ESP_LOGI(SGO_LOG_EVENT, "@BMP280 Initializing bmp280 i2c device\n");
-  // TODO: write you setup code here
 }
 
 void loop_bmp280(int i2cId) {
@@ -32,4 +33,3 @@ void loop_bmp280(int i2cId) {
   // TODO: write you i2c device read code here
   // stop_i2c();
 }
-

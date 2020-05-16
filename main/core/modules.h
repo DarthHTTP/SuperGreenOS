@@ -47,6 +47,8 @@
 
 #define MODULE_SHT21 1
 
+#define MODULE_BMP280 1
+
 #define MODULE_MOTORS 1
 
 #define MODULE_MOTOR 1

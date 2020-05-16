@@ -90,3 +90,13 @@ this will display the html embedded admin interface, which allows you to easily 
 
 ![Admin](assets/admin.png?raw=true "Admin")
 
+# Using templates.sh for adding a new component
+
+```bash
+./templates.sh new_i2c_device bmp280 config.controller.json
+```
+
+```bash
+ejs-cli - version ???
+cue - version 0.0.8
+```
