@@ -102,7 +102,6 @@ cue - version 0.0.8
 ./templates.sh new_i2c_device bmebmp280 config.controller.json
 ./update_config.sh config_gen/config/SuperGreenOS/Controller config.controller.json
 
-
 ./update_templates.sh config.controller.json
 ./update_htmlapp.sh config.controller.json
 

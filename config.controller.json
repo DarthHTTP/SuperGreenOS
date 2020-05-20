@@ -800,7 +800,7 @@
                         "manual": false
                     },
                     "write_cb": false,
-                    "default": 1,
+                    "default": 0,
                     "type": "integer",
                     "helper": "",
                     "http": {
@@ -827,7 +827,7 @@
                         "manual": false
                     },
                     "write_cb": false,
-                    "default": 1,
+                    "default": 0,
                     "type": "integer",
                     "helper": "",
                     "http": {
@@ -854,7 +854,7 @@
                         "manual": false
                     },
                     "write_cb": false,
-                    "default": 1,
+                    "default": 0,
                     "type": "integer",
                     "helper": "",
                     "http": {
@@ -1222,7 +1222,7 @@
                         "enable": false
                     },
                     "signedness": "",
-                    "intlen": 8,
+                    "intlen": 32,
                     "suffix": "0_pressure",
                     "caps_name": "BMEBMP280_0_PRESSURE",
                     "pres_sensor": 4
@@ -1249,7 +1249,7 @@
                         "enable": false
                     },
                     "signedness": "",
-                    "intlen": 8,
+                    "intlen": 32,
                     "suffix": "1_pressure",
                     "caps_name": "BMEBMP280_1_PRESSURE",
                     "pres_sensor": 5
@@ -1276,7 +1276,7 @@
                         "enable": false
                     },
                     "signedness": "",
-                    "intlen": 8,
+                    "intlen": 32,
                     "suffix": "2_pressure",
                     "caps_name": "BMEBMP280_2_PRESSURE",
                     "pres_sensor": 6
@@ -3574,7 +3574,7 @@
                         "manual": false
                     },
                     "write_cb": false,
-                    "default": 1,
+                    "default": 0,
                     "type": "integer",
                     "helper": "",
                     "http": {
@@ -3655,7 +3655,7 @@
                         "manual": false
                     },
                     "write_cb": false,
-                    "default": 1,
+                    "default": 0,
                     "type": "integer",
                     "helper": "",
                     "http": {
