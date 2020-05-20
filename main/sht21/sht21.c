@@ -32,7 +32,7 @@
 static uint16_t read_sht21(int i2cId);
 
 void init_sht21(int i2cId) {
-  ESP_LOGI(SGO_LOG_EVENT, "@SHT21 Initializing sht21 i2c device\n");
+  ESP_LOGI(SGO_LOG_EVENT, "@SHT21 Initializing sht21 i2c device");
 }
 
 static bool send_sht21_cmd(int i2cId, uint8_t cmd_b) {
@@ -107,15 +107,19 @@ void loop_sht21(int i2cId) {
       set_sht21_present(i2cId, 1);
     }
   }
+
   vTaskDelay(500 / portTICK_RATE_MS);
+
   {
     if (!send_sht21_cmd(i2cId, TRIGGER_HUMD_MEASURE_NOHOLD)) {
       set_sht21_present(i2cId, 0);
       stop_i2c(i2cId);
       return;
     }
+
     vTaskDelay(100 / portTICK_RATE_MS);
     uint16_t v = read_sht21(i2cId);
+
     if (v != 255) {
       v &= ~0x0003;
       float vd = -6.0 + 125.0 * (float)(v) / 65536.0;

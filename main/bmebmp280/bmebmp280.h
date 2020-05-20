@@ -13,23 +13,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <stdlib.h>
-#include "bmp280.h"
-#include "driver/i2c.h"
+#ifndef BMEBMP280_H_
+#define BMEBMP280_H_
 
-#include "../core/kv/kv.h"
-#include "../core/log/log.h"
-#include "../core/i2c/i2c.h"
-#include "../box/box.h"
+void init_bmebmp280(int i2cId);
+void loop_bmebmp280(int i2cId);
 
-#define BMP280_ADDR 0x77
-
-void init_bmp280(int i2cId) {
-  ESP_LOGI(SGO_LOG_EVENT, "@BMP280 Initializing bmp280 i2c device\n");
-}
-
-void loop_bmp280(int i2cId) {
-  // start_i2c();
-  // TODO: write you i2c device read code here
-  // stop_i2c();
-}
+#endif

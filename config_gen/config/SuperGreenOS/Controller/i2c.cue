@@ -10,13 +10,13 @@ _i2c_conf: [
   {
     sda: 21
     scl: 19
-    enabled: 1
+    enabled: 0
     port: 1
   },
   {
     sda: 21
     scl: 19
-    enabled: 1
+    enabled: 0
     port: 1
   }
 ]

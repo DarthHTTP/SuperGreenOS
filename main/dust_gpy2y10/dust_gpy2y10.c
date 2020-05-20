@@ -29,7 +29,7 @@
 void init_dust_gpy2y10(int portId, int sda, int sck) {
   int boxId = portId;
 
-  ESP_LOGI(SGO_LOG_EVENT, "@DUST_GP2Y10_%d Initializing dust_gpy2y10 i2c device\n", boxId);
+  ESP_LOGI(SGO_LOG_EVENT, "@DUST_GP2Y10_%d Initializing dust_gpy2y10 i2c device", boxId);
 }
 
 void loop_dust_gpy2y10(int portId, int sda, int sck) {

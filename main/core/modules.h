@@ -23,9 +23,7 @@
 
 #define MODULE_TIME 1
 
-#define MODULE_I2C 1
-
-#define MODULE_MANUAL 1
+#define MODULE_WIFI 1
 
 #define MODULE_STAT_DUMP 1
 
@@ -37,35 +35,37 @@
 
 #define MODULE_KV 1
 
+#define MODULE_I2C 1
+
 #define MODULE_HTTPD 1
 
-#define MODULE_WIFI 1
+#define MODULE_MANUAL 1
 
-#define MODULE_BOX 1
+#define MODULE_BMEBMP280 1
 
 #define MODULE_BLOWER 1
 
-#define MODULE_SHT21 1
-
-#define MODULE_BMP280 1
+#define MODULE_MIXER 1
 
 #define MODULE_MOTORS 1
 
 #define MODULE_MOTOR 1
 
-#define MODULE_ONOFF 1
+#define MODULE_SHT21 1
 
 #define MODULE_STATE 1
 
 #define MODULE_STATUS_LED 1
 
-#define MODULE_TIMER 1
-
 #define MODULE_LEDS 1
 
 #define MODULE_LED 1
 
-#define MODULE_MIXER 1
+#define MODULE_BOX 1
+
+#define MODULE_TIMER 1
+
+#define MODULE_ONOFF 1
 
 
 #endif

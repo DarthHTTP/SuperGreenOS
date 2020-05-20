@@ -24,5 +24,5 @@ if [ -z "$CONFIG_PATH" ] || [ -z "$CONFIG_FILE" ]; then
 fi
 
 pushd $CONFIG_PATH
-cue export ./... > "../../../../$CONFIG_FILE"
+cue export ./...  --out json > "../../../../$CONFIG_FILE"
 popd

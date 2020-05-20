@@ -46,9 +46,3 @@ do
   ejs-cli -O "{\"name\": \"$MODULE_NAME\"}" $i > "$FILE_PATH"
   echo -e "Call ejs-cli for $i to $FILE_PATH: ${GREEN}Done${NC}"
 done
-
-./update_config.sh config_gen/config/$PROJECT_NAME/ $CONFIG
-
-echo "==="
-echo "Running ./update_template.sh...."
-./update_templates.sh $CONFIG

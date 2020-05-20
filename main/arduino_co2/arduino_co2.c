@@ -32,7 +32,7 @@
 void init_arduino_co2(int portId, int sca, int sdk) {
   int boxId = portId;
 
-  ESP_LOGI(SGO_LOG_EVENT, "@ARDUINO_CO2_%d Initializing arduino_co2 i2c device\n", boxId);
+  ESP_LOGI(SGO_LOG_EVENT, "@ARDUINO_CO2_%d Initializing arduino_co2 i2c device", boxId);
 }
 
 void loop_arduino_co2(int portId, int sda, int sck) {

@@ -23,6 +23,10 @@
 #include "../kv/kv.h"
 #include "../log/log.h"
 
+/*
+* [GENERATED]
+*/
+
 <% Object.keys(modules).filter(m => modules[m].enabled).filter(m => modules[m].i2c).forEach(m => { m = modules[m]%>
 #include "../../<%= `${m.name}/${m.name}.h` %>"
 <% }) %>
@@ -75,6 +79,8 @@ static void initialize_i2c_port(int i2cId) {
   int scl = get_i2c_scl(i2cId);
   int port = get_i2c_port(i2cId);
 
+  ESP_LOGI(SGO_LOG_EVENT, "@I2C Initializing I2C master mode i2cId=%d sda=%d scl=%d port=%d", i2cId, sda, scl);
+
   i2c_started[i2cId] = true;
   i2c_config_t conf;
   conf.mode = I2C_MODE_MASTER;
@@ -84,9 +90,7 @@ static void initialize_i2c_port(int i2cId) {
   conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
   conf.master.clk_speed = MASTER_FREQ_HZ;
   i2c_param_config(port, &conf);
-  i2c_driver_install(port, conf.mode,
-      MASTER_RX_BUF_DISABLE,
-      MASTER_TX_BUF_DISABLE, 0);
+  i2c_driver_install(port, conf.mode, MASTER_RX_BUF_DISABLE, MASTER_TX_BUF_DISABLE, 0);
 }
 
 void start_i2c(int i2cId) {

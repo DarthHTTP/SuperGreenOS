@@ -1,3 +1,5 @@
+.vscode
+
 build/
 conf/
 spiffs_fs/config.yml.gz

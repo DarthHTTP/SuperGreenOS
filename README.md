@@ -93,10 +93,19 @@ this will display the html embedded admin interface, which allows you to easily 
 # Using templates.sh for adding a new component
 
 ```bash
-./templates.sh new_i2c_device bmp280 config.controller.json
-```
-
-```bash
 ejs-cli - version ???
 cue - version 0.0.8
+```
+
+
+```bash
+./templates.sh new_i2c_device bmebmp280 config.controller.json
+./update_config.sh config_gen/config/SuperGreenOS/Controller config.controller.json
+
+
+./update_templates.sh config.controller.json
+./update_htmlapp.sh config.controller.json
+
+
+./write_spiffs.sh
 ```
