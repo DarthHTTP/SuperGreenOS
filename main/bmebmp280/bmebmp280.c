@@ -82,14 +82,14 @@ void read_bmebmp280(void *p) {
         if (rslt != BME280_OK)
         ESP_LOGI(SGO_LOG_EVENT, "bme280_get_sensor_data() returned %d", rslt);
 
-        snprintf(msgbuf, sizeof(msgbuf), "t:%.02f p:%0.2f h:%0.2f",
+        snprintf(msgbuf, sizeof(msgbuf), "Temperature:%.02f C Pressure:%0.2f hPa Humidity:%0.2f %%",
             comp_data.temperature,
-            comp_data.pressure,
+            comp_data.pressure/100,
             comp_data.humidity);
 
         set_bmebmp280_temp(0, comp_data.temperature);
         set_bmebmp280_humi(0, comp_data.humidity);
-        set_bmebmp280_pressure(0, comp_data.pressure);
+        set_bmebmp280_pressure(0, comp_data.pressure/100);
 
         set_bmebmp280_present(0, 1);
 
