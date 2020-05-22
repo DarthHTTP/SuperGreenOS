@@ -1,11 +1,12 @@
 .vscode
+.bak
 
 build/
 conf/
 spiffs_fs/config.yml.gz
 releases/
-sdkconfig.old
 
+sdkconfig.old
 sdkconfig
 
 main/component.mk

@@ -51,9 +51,9 @@ void my_bme280_init(void) {
   bme280.write = (void *)user_i2c_write;
   bme280.delay_ms = (void *)user_delay_ms;
 
-  ESP_LOGI(SGO_LOG_EVENT, "@BMP280 calling bme280_init");
+  ESP_LOGD(SGO_LOG_EVENT, "@BMP280 calling bme280_init");
   rslt = bme280_init(&bme280);
-  ESP_LOGI(SGO_LOG_EVENT, "@BMP280 bme280 init result %d", rslt);
+  ESP_LOGD(SGO_LOG_EVENT, "@BMP280 bme280 init result %d", rslt);
 
   bme280.settings.osr_h = BME280_OVERSAMPLING_1X;
   bme280.settings.osr_p = BME280_OVERSAMPLING_4X;
@@ -62,7 +62,7 @@ void my_bme280_init(void) {
   settings_sel = BME280_OSR_PRESS_SEL | BME280_OSR_TEMP_SEL | BME280_OSR_HUM_SEL | BME280_FILTER_SEL;
 
   rslt = bme280_set_sensor_settings(settings_sel, &bme280);
-  ESP_LOGI(SGO_LOG_EVENT, "@BMP280 bme280 settings config result %d", rslt);
+  ESP_LOGD(SGO_LOG_EVENT, "@BMP280 bme280 settings config result %d", rslt);
 }
 
 void read_bmebmp280(void *p) {
@@ -80,7 +80,7 @@ void read_bmebmp280(void *p) {
         bme280.delay_ms(100);
         rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &bme280);
         if (rslt != BME280_OK)
-        ESP_LOGI(SGO_LOG_EVENT, "bme280_get_sensor_data() returned %d", rslt);
+        ESP_LOGD(SGO_LOG_EVENT, "bme280_get_sensor_data() returned %d", rslt);
 
         snprintf(msgbuf, sizeof(msgbuf), "Temperature:%.02f C Pressure:%0.2f hPa Humidity:%0.2f %%",
             comp_data.temperature,
@@ -112,7 +112,7 @@ int8_t user_i2c_write(uint8_t dev_addr, uint8_t reg_addr, uint8_t *reg_data, uin
   i2c_master_stop(cmd);
 
   espRc = i2c_master_cmd_begin(I2C_NUM_0, cmd, 200/portTICK_PERIOD_MS);
-  ESP_LOGI(SGO_LOG_EVENT, "in user_i2c_write, i2c_master_cmd_begin returns %d", espRc);
+  ESP_LOGD(SGO_LOG_EVENT, "in user_i2c_write, i2c_master_cmd_begin returns %d", espRc);
 
   if (espRc == ESP_OK) {
     iError = SUCCESS;
@@ -144,7 +144,7 @@ int8_t user_i2c_read(uint8_t dev_addr, uint8_t reg_addr, uint8_t *reg_data, uint
   i2c_master_stop(cmd);
 
   espRc = i2c_master_cmd_begin(I2C_NUM_0, cmd, 200/portTICK_PERIOD_MS);
-  ESP_LOGI(SGO_LOG_EVENT, "in user_i2c_read, i2c_master_cmd_begin returns %d", espRc);
+  ESP_LOGD(SGO_LOG_EVENT, "in user_i2c_read, i2c_master_cmd_begin returns %d", espRc);
 
   if (espRc == ESP_OK) {
     iError = SUCCESS;
