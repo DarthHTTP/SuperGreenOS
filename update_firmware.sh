@@ -16,11 +16,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-set -e 
+set -e
 
 GREEN="\033[0;32m"
 NC="\033[0m"
-NAME="SuperGreenOSBoilerplate"
+NAME="SuperGreenOS"
 if [ "$#" -eq 1 ]; then
   NAME=$1
 else
@@ -31,10 +31,11 @@ TS=`date +"%s"`
 DEST="releases/$NAME/$TS"
 mkdir -p $DEST
 
-sed -i -E "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP ${TS}/g" main/core/ota/ota.h
 echo -e "Set timestamp in main/core/ota/ota.h to $TS: ${GREEN}Done${NC}"
-make -j4
+sed -i .bak -E "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP ${TS}/g" main/core/ota/ota.h
+
 echo -e "Building project: ${GREEN}Done${NC}"
+make -j4
 
 for i in build/ota_data_initial.bin build/bootloader/bootloader.bin build/partitions.bin build/firmware.bin $IDF_PATH/components/esptool_py/esptool/esptool.py
 do
@@ -71,4 +72,4 @@ echo 'python $DIR/esptool.py --chip esp32 --port /dev/ttyUSB1 --baud 921600 writ
 chmod +x $DEST/write_spiffs.sh
 echo -e "Created $DEST/write_spiffs.sh: ${GREEN}Done${NC}"
 
-sed -i -E "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP 0/g" main/core/ota/ota.h
+sed -i .bak -E "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP 0/g" main/core/ota/ota.h
