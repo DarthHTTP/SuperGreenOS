@@ -26,3 +26,6 @@ main/core/ble/ble_db.h
 main/core/ble/ble_db.c
 main/core/include_modules.h
 main/core/stat_dump/stat_dump.c
+main/core/modules.h
+
+build.env
