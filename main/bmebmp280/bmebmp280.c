@@ -22,8 +22,7 @@
 #include "../core/i2c/i2c.h"
 #include "../box/box.h"
 
-#include "sdkconfig.h"
-#include "bme280.h"
+#include "bme280_driver.h"
 
 #define SUCCESS 0
 #define FAIL -1

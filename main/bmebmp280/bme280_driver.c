@@ -30,16 +30,16 @@
 * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 * POSSIBILITY OF SUCH DAMAGE.
 *
-* @file	bme280.c
+* @file	bme28_driver.c
 * @date	2020-01-24
 * @version	v3.4.3
 *
 */
 
-/*! @file bme280.c
+/*! @file bme28_driver.c
  * @brief Sensor driver for BME280 sensor
  */
-#include "bme280.h"
+#include "bme280_driver.h"
 
 /**\name Internal macros */
 /* To identify osr settings selected by user */

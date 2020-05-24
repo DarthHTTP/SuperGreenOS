@@ -30,13 +30,13 @@
 * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 * POSSIBILITY OF SUCH DAMAGE.
 *
-* @file	bme280.h
+* @file	bme280_driver.h
 * @date	2020-01-24
 * @version	v3.4.3
 *
 */
 
-/*! @file bme280.h
+/*! @file bme280_driver.h
  * @brief Sensor driver for BME280 sensor
  */
 
@@ -52,7 +52,7 @@ extern "C" {
 #endif
 
 /* Header includes */
-#include "bme280_defs.h"
+#include "bme280_defs_driver.h"
 
 /*!
  *  @brief This API is the entry point.
