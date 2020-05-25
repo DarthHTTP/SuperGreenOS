@@ -156,6 +156,7 @@ void loop_bmebmp280(int i2cId) {
           ESP_LOGE(SGO_LOG_EVENT, "@BMEBMP280 initialization error: NVM_COPY_FAILED (%d)", result_bme280_init);
           break;
       }
+      set_bmebmp280_present(i2cId, 0);
       return;
     }
 
@@ -172,6 +173,7 @@ void loop_bmebmp280(int i2cId) {
     ESP_LOGD(SGO_LOG_EVENT, "@BMEBMP280 bme280 settings config result %d", rslt_set_sensor_settings);
 
     if (rslt_set_sensor_settings != BME280_OK) {
+      set_bmebmp280_present(i2cId, 0);
       return;
     }
 
@@ -190,6 +192,7 @@ void loop_bmebmp280(int i2cId) {
     rslt_bme280_get_sensor_data = bme280_get_sensor_data(BME280_ALL, &comp_data, &bme280);
     if (rslt_bme280_get_sensor_data != BME280_OK) {
       ESP_LOGD(SGO_LOG_EVENT, "@BMEBMP280 bme280_get_sensor_data() returns %d", rslt_bme280_get_sensor_data);
+      set_bmebmp280_present(i2cId, 0);
       return;
     }
 
