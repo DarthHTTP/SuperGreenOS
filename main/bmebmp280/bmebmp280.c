@@ -40,7 +40,7 @@ void user_delay_ms(uint32_t ms);
 struct bme280_dev bme280;
 
 void init_bmebmp280(int i2cId) {
-	ESP_LOGI(SGO_LOG_EVENT, "@BMEBMP280 Initializing bmp280 i2c device %d", i2cId);
+  ESP_LOGI(SGO_LOG_EVENT, "@BMEBMP280 Initializing bmp280 i2c device %d", i2cId);
 }
 
 /*
@@ -189,7 +189,7 @@ void loop_bmebmp280(int i2cId) {
     int8_t rslt_bme280_get_sensor_data;
     rslt_bme280_get_sensor_data = bme280_get_sensor_data(BME280_ALL, &comp_data, &bme280);
     if (rslt_bme280_get_sensor_data != BME280_OK) {
-      ESP_LOGD(SGO_LOG_EVENT, "@BMEBMP280 in read_bmebmp280, bme280_get_sensor_data() returns %d", rslt_bme280_get_sensor_data);
+      ESP_LOGD(SGO_LOG_EVENT, "@BMEBMP280 bme280_get_sensor_data() returns %d", rslt_bme280_get_sensor_data);
       return;
     }
 
