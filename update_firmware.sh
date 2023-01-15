@@ -22,8 +22,8 @@ set -e
 
 GREEN="\033[0;32m"
 NC="\033[0m"
-NAME="SuperGreenOSBoilerplate"
-SERIAL_PORT=${SERIAL_PORT:-"/dev/ttyUSB1"}
+NAME="SuperGreenOS"
+SERIAL_PORT=${SERIAL_PORT:-"/dev/cu.usbserial-0001"}
 
 if [ "$#" -eq 1 ]; then
   NAME=$1
@@ -36,7 +36,7 @@ DEST="releases/$NAME/$TS"
 mkdir -p $DEST
 
 echo -e "Set timestamp in main/core/ota/ota.h to $TS: ${GREEN}Done${NC}"
-sed -i .bak -E "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP ${TS}/g" main/core/ota/ota.h
+gsed -i "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP ${TS}/g" main/core/ota/ota.h
 
 echo -e "Building project: ${GREEN}Done${NC}"
 make -j4
@@ -76,4 +76,4 @@ echo 'python $DIR/esptool.py --chip esp32 --port ${SERIAL_PORT} --baud 921600 wr
 chmod +x $DEST/write_spiffs.sh
 echo -e "Created $DEST/write_spiffs.sh: ${GREEN}Done${NC}"
 
-sed -i .bak -E "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP 0/g" main/core/ota/ota.h
+gsed -i "s/^#define OTA_BUILD_TIMESTAMP [^$]+/#define OTA_BUILD_TIMESTAMP 0/g" main/core/ota/ota.h

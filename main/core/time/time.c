@@ -58,6 +58,10 @@ static void time_task(void *param) {
   while(true) {
     time_t now;
     time(&now);
+    
+    setenv("TZ", "CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00", 1);
+    tzset();
+    
     print_time(SGO_LOG_NOSEND, "TIME", now);
     set_time((int)now);
 

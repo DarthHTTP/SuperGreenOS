@@ -29,3 +29,5 @@ main/core/stat_dump/stat_dump.c
 main/core/modules.h
 
 build.env
+
+config.controller.local*.json

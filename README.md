@@ -4,21 +4,22 @@
 
 # Table of Contents
 
-   * [SuperGreenOS](#supergreenos)
-      * [Who is this document for](#who-is-this-document-for)
-      * [Features](#features)
-   * [Quickstart](#quickstart)
-      * [Workspace setup](#workspace-setup)
-         * [Esp-idf setup](#esp-idf-setup)
-         * [Clone repo, build and run](#clone-repo-build-and-run)
-         * [Connect to wifi](#connect-to-wifi)
-      * [Basic concept](#basic-concept)
-      * [Key / value](#key--value)
-      * [Available keys](#available-keys)
-         * [Core keys](#core-keys)
-         * [Controller keys](#controller-keys)
-         * [Box keys](#box-keys)
-         * [Led keys](#led-keys)
+- [Table of Contents](#table-of-contents)
+- [SuperGreenOS](#supergreenos)
+  - [Who is this document for](#who-is-this-document-for)
+  - [Features](#features)
+- [Workspace setup](#workspace-setup)
+  - [Clone repo, build and run](#clone-repo-build-and-run)
+- [How to use](#how-to-use)
+- [Up-2-date dev environment setup 06/2020](#up-2-date-dev-environment-setup-062020)
+  - [Python 2.7](#python-27)
+    - [macos](#macos)
+  - [ESP-IDF](#esp-idf)
+  - [ejs-cli](#ejs-cli)
+  - [mkspiffs](#mkspiffs)
+  - [cue](#cue)
+- [Using templates.sh for adding a new component](#using-templatessh-for-adding-a-new-component)
+- [Up-2-date dev environment setup 01/2023](#up-2-date-dev-environment-setup-012023)
 
 ![WeedAppPic](assets/weedapppic.png?raw=true "WeedAppPic")
 
@@ -90,6 +91,71 @@ this will display the html embedded admin interface, which allows you to easily 
 
 ![Admin](assets/admin.png?raw=true "Admin")
 
+
+# Up-2-date dev environment setup 06/2020
+
+## Python 2.7
+
+### macos
+```bash
+brew install python@2
+```
+
+## ESP-IDF
+
+
+```bash
+mkdir -p $HOME/esp && cd $HOME/esp
+git clone --recursive https://github.com/espressif/esp-idf.git esp-idf_release_3.3.2
+cd esp-idf_release_3.3.2
+```
+
+Install Docs reference:
+https://docs.espressif.com/projects/esp-idf/en/v3.3.2/get-started/index.html
+
+```bash
+python2.7 -m pip install --user -r $IDF_PATH/requirements.txt
+```
+
+Practically, a virtualenv is created in ~/.espressif where packages are installed and will be activated with the following addition to shell (.bashrc / .zshrc)
+
+```bash
+export IDF_PATH=$HOME/esp/esp-idf_release_3.3.2
+source $IDF_PATH/export.sh
+```
+
+## ejs-cli
+```bash
+npm -g install ejs-cli
+```
+
+## mkspiffs
+
+Please pay attention to *Build configuration name: generic* and version.
+
+https://github.com/igrr/mkspiffs/releases
+
+```bash
+mkspiffs ver. 0.2.3
+Build configuration name: generic
+SPIFFS ver. 0.3.7-5-gf5e26c4
+Extra build flags: (none)
+SPIFFS configuration:
+  SPIFFS_OBJ_NAME_LEN: 32
+  SPIFFS_OBJ_META_LEN: 0
+  SPIFFS_USE_MAGIC: 1
+  SPIFFS_USE_MAGIC_LENGTH: 1
+  SPIFFS_ALIGNED_OBJECT_INDEX_TABLES: 0
+```
+
+## cue
+
+https://github.com/cuelang/cue/releases
+
+```bash
+cue version 0.0.8 darwin/amd64
+```
+
 # Using templates.sh for adding a new component
 
 ```bash
@@ -107,4 +173,34 @@ cue - version 0.0.8
 
 
 ./write_spiffs.sh
+```
+
+# Up-2-date dev environment setup 01/2023
+
+```bash
+brew install pyenv
+
+pyenv global 2.7.18
+
+python2 -m pip install -r $IDF_PATH/requirements.txt
+
+$IDF_PATH/install.sh
+```
+  
+
+.bashrc
+  
+
+```bash
+#
+#
+#
+PATH=~/.bin:$PATH
+PATH=~/.pyenv/shims:$PATH
+
+#
+#
+#
+export IDF_PATH=$HOME/esp/esp-idf_release_3.3.1
+source $IDF_PATH/export.sh
 ```

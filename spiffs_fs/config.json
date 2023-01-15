@@ -219,7 +219,7 @@
               "write": true,
               
               
-              "default": "198.211.123.192"
+              "default": "192.168.1.130"
             },
           
             {
@@ -234,7 +234,7 @@
               "write": true,
               
               
-              "default": "update2.supergreenlab.com"
+              "default": "192.168.1.130"
             },
           
             {
@@ -249,7 +249,7 @@
               "write": true,
               
               
-              "default": 80
+              "default": 8081
             },
           
             {
@@ -264,7 +264,7 @@
               "write": true,
               
               
-              "default": "/ControllerV2.1"
+              "default": "/SuperGreenOS"
             },
           
             {
@@ -279,7 +279,7 @@
               "write": true,
               
               
-              "default": "mqtt://sink2.supergreenlab.com:1883"
+              "default": "mqtt://sonoff:sonoff@mqtt.local.net:1883"
             },
           
             {
@@ -294,7 +294,7 @@
               "write": true,
               
               
-              "default": ""
+              "default": "SGC_C9CF24"
             },
           
             {
@@ -314,7 +314,7 @@
               "write": true,
               
               
-              "default": ""
+              "default": "SGC_C9CF24"
             },
           
             {
@@ -1863,7 +1863,7 @@
               "write": true,
               
               
-              "default": "SuperGreenController"
+              "default": "SGC_C9CF24"
             },
           
             {
@@ -1923,7 +1923,7 @@
               "write": true,
               
               
-              "default": 1
+              "default": 0
             },
           
             {
